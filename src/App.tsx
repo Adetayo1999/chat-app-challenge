@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Chat } from "./components/chat";
 
 function App() {
     const [username] = useState("omotomiwa");
@@ -32,6 +33,16 @@ function App() {
                     <h4 className="text-slate-100 text-lg font-medium">
                         {username}
                     </h4>
+                </div>
+                <div className="w-full flex flex-col px-4 py-2">
+                    {messages.map(({ text, id, sender }) => (
+                        <Chat
+                            text={text}
+                            key={id}
+                            sender={sender}
+                            isCurrentUser={sender === username}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
