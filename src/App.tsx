@@ -64,7 +64,7 @@ function App() {
 
     return (
         <div className="h-screen flex justify-center items-center bg-slate-100 overflow-hidden">
-            <div className=" w-[60%] md:w-[40%]  relative h-[70%] mx-auto  bg-white rounded-md  overflow-hidden shadow-md">
+            <div className="w-[80%] sm:w-[60%] lg:w-[40%]  relative h-[70%] mx-auto  bg-white rounded-md  overflow-hidden shadow-md">
                 {username ? (
                     <>
                         <User username={username} />
