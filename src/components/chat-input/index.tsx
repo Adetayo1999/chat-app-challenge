@@ -4,9 +4,15 @@ type ChatInputProps = {
     handleChatSend: () => void;
 };
 
-function ChatInput({ chat, handleChat, handleChatSend }: ChatInputProps) {
+export function ChatInput({
+    chat,
+    handleChat,
+    handleChatSend,
+}: ChatInputProps) {
     return (
-        <div className="flex items-center">
+        <form
+            className="flex items-center"
+            onSubmit={(e) => e.preventDefault()}>
             <input
                 type="text"
                 name=""
@@ -14,9 +20,10 @@ function ChatInput({ chat, handleChat, handleChatSend }: ChatInputProps) {
                 onChange={handleChat}
                 className="flex-1 mr-4 h-10 rounded-md bg-slate-50 px-3 text-sm outline-none"
                 placeholder="Enter a chat..."
+                data-testid="chat-input"
             />
             <button
-                type="button"
+                type="submit"
                 className={`bg-slate-100 rounded-md h-10 px-3 text-slate-700 text-sm ${
                     !chat && "cursor-not-allowed"
                 }`}
@@ -24,8 +31,6 @@ function ChatInput({ chat, handleChat, handleChatSend }: ChatInputProps) {
                 onClick={handleChatSend}>
                 Send
             </button>
-        </div>
+        </form>
     );
 }
-
-export default ChatInput;
